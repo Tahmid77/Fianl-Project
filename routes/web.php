@@ -20,5 +20,3 @@ Route::get('/', [ProblemController::class, 'index']);
 
 //single problems
 Route::get('/problems/{id}', [ProblemController::class, 'show']);
-
-//ami sakin
