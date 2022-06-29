@@ -10,9 +10,10 @@
                     >
                         <img
                             class="w-48 mr-6 mb-6"
-                            src="{{asset('images/no-image.png')}}"
+                            src="{{$problem->p_file ? asset('storage/'.$problem->p_file) : asset('images/no-image.png')}}"
                             alt=""
                         />
+                        <a href="{{'../storage/'.$problem->p_file}}">sakin</a>
 
                         <h3 class="text-2xl mb-2">{{$problem->title}}</h3>
                         <x-problem-tags :tagsCsv="$problem->tags"></x-problem-tags>
@@ -33,6 +34,21 @@
                             </div>
                         </div>
                     </div>
+                </x-card>
+
+                <x-card class="mt-4 p-2 flex space-x-6">
+                    <a href="/problems/{{$problem->id}}/edit">
+                        <i class="fa-solid fa-pencil">
+                            Edit
+                        </i>
+                    </a>
+                    <form method="POST" action="/problems/{{$problem->id}}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="text-red-500">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </form>
                 </x-card>
             </div>
 @endsection

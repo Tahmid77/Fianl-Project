@@ -13,6 +13,10 @@
 <x-problem-card :problem="$problem"/>
 @endforeach
 
+
+</div>
+<div class="mt-6 p-4">
+    {{$problems->links()}}
 </div>
 @endsection
 
