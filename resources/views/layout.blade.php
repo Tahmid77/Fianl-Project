@@ -12,6 +12,14 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <style>
+            body{
+                margin-bottom: 0px !important; 
+            }
+            input:focus {
+                border: solid 3px rgb(34 197 94);
+                }
+        </style>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -27,7 +35,7 @@
         <title>LaraGigs | Find Laravel Jobs & Projects</title> 
     </head>
     <body class="mb-48">
-        <nav class="flex justify-between items-center mb-4">
+        <nav class="flex justify-between items-center pt-5 m-7">
             <a href="/"
                 ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
             /></a>
@@ -72,13 +80,13 @@
   </main>
 
   <footer
-            class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center"
+            class=" w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
 
             <a
                 href="/problems/create"
-                class="absolute top-1/3 right-10 bg-black text-white py-2 px-5"
+                class="bg-black text-white ml-5 py-2 px-5"
                 >Post Job</a
             >
         </footer>
