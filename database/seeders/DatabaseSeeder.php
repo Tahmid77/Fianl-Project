@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Problem;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,7 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-
-
+        $user = User::factory()->create([
+            'name' => 'Morny Tanvir',
+            'email' => 'morny@gmail.com'
+        ]);
+        Problem::factory(6)->create([
+            'user_id' => $user->id
+        ]);
     }
 }

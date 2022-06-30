@@ -10,7 +10,7 @@ class Problem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'email', 'mobile', 'tags', 'description', 'p_file'];
+    protected $fillable = ['title', 'email', 'mobile', 'tags', 'description', 'p_file', 'user_id'];
 
     public function scopeFilter($query, array $filters)
     {
@@ -22,5 +22,12 @@ class Problem extends Model
                 ->orWhere('description', 'like', '%' . request('search') . '%')
                 ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
+    }
+
+    //Relationship to User
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

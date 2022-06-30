@@ -50,5 +50,5 @@
                         </button>
                     </form>
                 </x-card>
-            </div>
+            </div> 
 @endsection
