@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('tags');
             $table->string('email');
-            $table->string('mobile');
             $table->string('p_file')->nullable();
             $table->longText('description');
             $table->timestamps();

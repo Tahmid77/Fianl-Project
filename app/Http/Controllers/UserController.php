@@ -60,9 +60,9 @@ class UserController extends Controller
         $formVal['password'] = bcrypt($formVal['password']);
         $user = User::create($formVal);
 
-        auth()->login($user);
+        // auth()->login($user);
         Session::flash('msg', 'Registered Successfully');
-        return redirect('/');
+        return redirect('/login');
     }
 
     public function login(Request $req)
