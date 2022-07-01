@@ -16,9 +16,15 @@ class ProblemController extends Controller
 
         return view('problems.index', [
             'heading' => 'Latest Problems',
-            'problems' => Problem::latest()->filter(request(['tag', 'search']))->simplePaginate(4)
+            'problems' => Problem::latest()->filter(request(['tag', 'search']))->paginate(6)
         ]);
     }
+
+    public function showFile($name)
+    {
+        return redirect('storage/files/' . $name);
+    }
+
     public function show($id)
     {
         $problem = Problem::find($id);
@@ -45,7 +51,6 @@ class ProblemController extends Controller
         $formVal = $req->validate([
             'title' => 'required',
             'email' => 'required',
-            'mobile' => 'required',
             'tags' => 'required',
             'description' => 'required'
         ]);
@@ -80,7 +85,6 @@ class ProblemController extends Controller
         $formVal = $req->validate([
             'title' => 'required',
             'email' => 'required',
-            'mobile' => 'required',
             'tags' => 'required',
             'description' => 'required'
         ]);

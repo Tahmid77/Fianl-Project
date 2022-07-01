@@ -10,19 +10,19 @@
                     >
                         <img
                             class="w-48 mr-6 mb-6"
-                            src="{{$problem->p_file ? asset('storage/'.$problem->p_file) : asset('images/no-image.png')}}"
+                            src="{{ asset('images/no-image.png')}}"
                             alt=""
                         />
-                        <a href="{{'../storage/'.$problem->p_file}}">sakin</a>
+                        
 
                         <h3 class="text-2xl mb-2">{{$problem->title}}</h3>
                         <x-problem-tags :tagsCsv="$problem->tags"></x-problem-tags>
                         <div class="border border-gray-200 w-full mb-6"></div>
                         <div>
                             <h3 class="text-3xl font-bold mb-4">
-                                Job Description
+                                Problem Description
                             </h3>
-                            <div class="text-lg space-y-6">
+                            <div class="text-lg space-y-6 w-13">
                                 {{$problem->description}}
 
                                 {{-- <a
@@ -31,12 +31,14 @@
                                     ><i class="fa-solid fa-envelope"></i>
                                     Contact Employer</a
                                 > --}}
+                                
                             </div>
+                            <a href="{{'storage/'.$problem->p_file}}" class="underline text-green-500 hover:text-black">{{$problem->p_file ? 'Attatched File' : ''}}</a>
                         </div>
                     </div>
                 </x-card>
 
-                <x-card class="mt-4 p-2 flex space-x-6">
+                {{-- <x-card class="mt-4 p-2 flex space-x-6">
                     <a href="/problems/{{$problem->id}}/edit">
                         <i class="fa-solid fa-pencil">
                             Edit
@@ -50,5 +52,5 @@
                         </button>
                     </form>
                 </x-card>
-            </div> 
+            </div>  --}}
 @endsection

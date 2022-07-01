@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
 <div
                     class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
                 >
@@ -42,21 +43,11 @@
                                 name="email"
                                 value="{{$problem->email}}"
                             />
-                        </div>
-
-                        <div class="mb-6">
-                            <label
-                                for="mobile"
-                                class="inline-block text-lg mb-2"
-                            >
-                                Mobile
-                            </label>
-                            <input
-                                type="text"
-                                class="border border-gray-200 rounded p-2 w-full"
-                                name="mobile"
-                                value="{{$problem->mobile}}"
-                            />
+                            @error('email')
+                                <p class="text-red-500 text-xs mt-1">
+                                    {{$message}}
+                                </p>
+                            @enderror
                         </div>
 
                         <div class="mb-6">
@@ -70,6 +61,11 @@
                                 placeholder="Example: Laravel, Backend, Postgres, etc"
                                 value="{{$problem->tags}}"
                             />
+                            @error('tags')
+                                <p class="text-red-500 text-xs mt-1">
+                                    {{$message}}
+                                </p>
+                            @enderror
                         </div>
 
                         <div class="mb-6">
@@ -82,17 +78,23 @@
                                 name="p_file"
                             />
 
-                            <img
+                            {{-- <img
                             class="w-48 mr-6 mb-6"
                             src="{{$problem->p_file ? asset('storage/'.$problem->p_file) : asset('images/no-image.png')}}"
                             alt=""
-                           />
+                           /> --}}
+                           
 
                             @error('file')
                             <p class="text-red-500 text-xs mt-1">
                                 {{$message}}
+                                
                             </p>
                         @enderror
+                        <p class="text-green-500 text-xs mt-1">
+                            {{$problem->p_file ? $problem->p_file : ''}}
+                        </p>
+
                         </div>
 
                         <div class="mb-6">
@@ -113,7 +115,7 @@
 
                         <div class="mb-6">
                             <button
-                                class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
+                                class="bg-green-500 text-white rounded py-2 px-4 hover:bg-black"
                             >
                                 Create Gig
                             </button>

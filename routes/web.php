@@ -32,6 +32,10 @@ Route::get('/problems/manage', [ProblemController::class, 'manage'])
 Route::post('/problems', [ProblemController::class, 'store'])
     ->middleware('auth');
 
+//store problem datas
+Route::get('problems/storage/files/{name}', [ProblemController::class, 'showFile'])
+    ->middleware('auth');
+
 //edit
 Route::get('/problems/{id}/edit', [ProblemController::class, 'edit'])
     ->middleware('auth');
@@ -56,6 +60,12 @@ Route::get('/register', [UserController::class, 'create'])
 
 //create user
 Route::post('/user', [UserController::class, 'store']);
+
+//show user
+Route::get('/user/profile', [UserController::class, 'show']);
+
+//update user
+Route::put('/user/profile', [UserController::class, 'update']);
 
 //logout
 Route::post('/logout', [UserController::class, 'logout'])

@@ -43,11 +43,20 @@
                 @auth
                 <li>
                     <span class="font-bold upppercase">
-                        Welcome {{auth()->user()->name}}
+                        
+                        <a href="/user/profile" class="hover:text-green-500"
+                        >Welcome {{auth()->user()->name}}</a
+                    >
                     </span>
                 </li>
                 <li>
-                    <a href="/problems/manage" class="hover:text-laravel"
+                    <a href="/problems/create" class="hover:text-green-500"
+                        ><i class="fa-solid fa-plus"></i>
+                        Upload Problems</a
+                    >
+                </li>
+                <li>
+                    <a href="/problems/manage" class="hover:text-green-500"
                         ><i class="fa-solid fa-gear"></i>
                         Manage Problems</a
                     >
@@ -55,19 +64,19 @@
                 <li>
                     <form method="POST" action="/logout" class="inline">
                      @csrf
-                     <button type="submit">
+                     <button type="submit" class="hover:text-red-500">
                         <i class="fa-solid fa-door-closed"></i> Logout
                      </button>
                     </form>
                 </li>
                 @else
                 <li>
-                    <a href="/register" class="hover:text-laravel"
+                    <a href="/register" class="hover:text-green-500"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
                     >
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-laravel"
+                    <a href="/login" class="hover:text-green-500"
                         ><i class="fa-solid fa-arrow-right-to-bracket"></i>
                         Login</a
                     >
@@ -83,12 +92,6 @@
             class=" w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
-
-            <a
-                href="/problems/create"
-                class="bg-black text-white ml-5 py-2 px-5"
-                >Post Job</a
-            >
         </footer>
         <x-flash-message></x-flash-message>
 </body>

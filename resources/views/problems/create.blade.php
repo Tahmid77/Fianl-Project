@@ -5,16 +5,16 @@
                 >
                     <header class="text-center">
                         <h2 class="text-2xl font-bold uppercase mb-1">
-                            Create a Gig
+                            Post a problem
                         </h2>
-                        <p class="mb-4">Post a gig to find a developer</p>
+                        <p class="mb-4">Post a problem to find a solution</p>
                     </header>
 
                     <form method="POST" action="/problems" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-6">
                             <label for="title" class="inline-block text-lg mb-2"
-                                >Job Title</label
+                                >Problem Title</label
                             >
                             <input
                                 type="text"
@@ -38,20 +38,7 @@
                                 type="text"
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="email"
-                            />
-                        </div>
-
-                        <div class="mb-6">
-                            <label
-                                for="mobile"
-                                class="inline-block text-lg mb-2"
-                            >
-                                Mobile
-                            </label>
-                            <input
-                                type="text"
-                                class="border border-gray-200 rounded p-2 w-full"
-                                name="mobile"
+                                value={{auth()->user()->email}}
                             />
                         </div>
 
@@ -100,7 +87,7 @@
 
                         <div class="mb-6">
                             <button
-                                class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
+                                class="bg-green-500 text-white rounded py-2 px-4 hover:bg-black"
                             >
                                 Create Gig
                             </button>

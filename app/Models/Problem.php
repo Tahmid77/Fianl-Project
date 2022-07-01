@@ -10,7 +10,7 @@ class Problem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'email', 'mobile', 'tags', 'description', 'p_file', 'user_id'];
+    protected $fillable = ['title', 'email', 'tags', 'description', 'p_file', 'user_id'];
 
     public function scopeFilter($query, array $filters)
     {

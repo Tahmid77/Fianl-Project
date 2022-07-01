@@ -14,6 +14,36 @@ class UserController extends Controller
     {
         return view('users.register');
     }
+    public function show()
+    {
+        return view('users.edit');
+    }
+
+    public function update(Request $req)
+    {
+        $formVal = $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        // if ($req->hasFile('p_file')) {
+        //     $formVal['p_file'] = $req->file('p_file')->store('files', 'public');
+        // }
+        if ($formVal['password'] != auth()->user()->password) {
+            $formVal['password'] = bcrypt($formVal['password']);
+        } else {
+            $formVal['password'] = auth()->user()->password;
+        }
+
+        $user = User::find(auth()->user()->password);
+        $user->update($formVal);
+
+        Session::flash('msg', 'Profile Updated');
+
+
+        return redirect('/');
+    }
 
     public function store(Request $req)
     {

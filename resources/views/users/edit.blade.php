@@ -7,11 +7,26 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <h2 class="text-2xl font-bold uppercase mb-1">
         Register
     </h2>
-    <p class="mb-4">Log In</p>
+    <p class="mb-4">Create an account to post gigs</p>
 </header>
 
-<form method="POST" action="/users/authenticate">
+<form method="POST" action="/user/profile" method="POST" action="/user">
     @csrf
+    <div class="mb-6">
+        <label for="name" class="inline-block text-lg mb-2">
+            Name
+        </label>
+        <input
+            type="text"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="name"
+            value="{{auth()->user()->name}}"
+        />
+        @error('name')
+            {{$message}}
+        @enderror
+    </div>
+
     <div class="mb-6">
         <label for="email" class="inline-block text-lg mb-2"
             >Email</label
@@ -20,12 +35,11 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
+            value="{{auth()->user()->email}}"
         />
         <!-- Error Example -->
         <p class="text-red-500 text-xs mt-1">
-            @error('email')
-                {{$message}}
-            @enderror
+            Please enter a valid email
         </p>
     </div>
 
@@ -42,22 +56,28 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="password"
         />
     </div>
+
+    <div class="mb-6">
+        <label
+            for="password2"
+            class="inline-block text-lg mb-2"
+        >
+            Confirm Password
+        </label>
+        <input
+            type="password"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="password2"
+        />
+    </div>
+
     <div class="mb-6">
         <button
             type="submit"
             class="bg-green-500 text-white rounded py-2 px-4 hover:bg-black"
         >
-            Login
+            Update
         </button>
-    </div>
-
-    <div class="mt-8">
-        <p>
-            Not registerd yet?
-            <a href="/register" class="text-green-500"
-                >Register</a
-            >
-        </p>
     </div>
 </form>
 </div>
