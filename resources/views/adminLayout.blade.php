@@ -89,12 +89,11 @@
   </main>
 
   <footer
-            class=" w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
+            class="absolute bottom-0 w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
         </footer>
         <x-flash-message></x-flash-message>
-
 
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.8.2/dist/alpine.min.js"></script>
 </body>
