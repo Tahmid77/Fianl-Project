@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -30,13 +32,14 @@ class UserController extends Controller
         // if ($req->hasFile('p_file')) {
         //     $formVal['p_file'] = $req->file('p_file')->store('files', 'public');
         // }
-        if ($formVal['password'] != auth()->user()->password) {
+
+        if (Hash::check($formVal['password'], Auth::user()->password, [])) {
             $formVal['password'] = bcrypt($formVal['password']);
         } else {
-            $formVal['password'] = auth()->user()->password;
+            $formVal['password'] = bcrypt($formVal['password']);
         }
 
-        $user = User::find(auth()->user()->password);
+        $user = User::find(auth()->user()->id);
         $user->update($formVal);
 
         Session::flash('msg', 'Profile Updated');

@@ -5,13 +5,14 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
 >
 <header class="text-center">
     <h2 class="text-2xl font-bold uppercase mb-1">
-        Register
+        Profile
     </h2>
-    <p class="mb-4">Create an account to post gigs</p>
+    <p class="mb-4">Update your profile</p>
 </header>
 
-<form method="POST" action="/user/profile" method="POST" action="/user">
+<form method="POST" action="/user/profile" action="/user">
     @csrf
+    @method('PUT')
     <div class="mb-6">
         <label for="name" class="inline-block text-lg mb-2">
             Name
