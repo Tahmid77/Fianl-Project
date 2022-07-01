@@ -17,6 +17,9 @@ use App\Http\Controllers\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//routes
+
 //all problems
 Route::get('/', [ProblemController::class, 'index']);
 
