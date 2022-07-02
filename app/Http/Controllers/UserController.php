@@ -80,7 +80,7 @@ class UserController extends Controller
 
 
         $formVal['password'] = bcrypt($formVal['password']);
-        $user = User::create($formVal);
+        User::create($formVal);
 
         // auth()->login($user);
         Session::flash('msg', 'Registered Successfully');
@@ -110,14 +110,29 @@ class UserController extends Controller
             'password' => 'required'
         ]);
 
+        $getUser =  $formVal["email"];
+
+        $user = User::where("email", $getUser)->first();
+
+        if ($user->type == "admin") {
+            if (auth()->attempt($formVal)) {
+                $req->session()->regenerate();
+
+                Session::flash('msg', 'Logged in Successfully');
+                return redirect('/adminOperations/user');
+            } else {
+                Session::flash('msg', 'Invalid Credentials');
+                return back();
+            }
+        }
+
+
         if (auth()->attempt($formVal)) {
             $req->session()->regenerate();
 
             Session::flash('msg', 'Logged in Successfully');
             return redirect('/');
         } else {
-
-
             Session::flash('msg', 'Invalid Credentials');
             return back();
         }

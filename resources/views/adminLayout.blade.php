@@ -32,54 +32,48 @@
                 },
             };
         </script>
-        <title>LaraGigs | Find Laravel Jobs & Projects</title> 
+        <title>Study Hub Admin</title> 
     </head>
-    <body class="mb-48">
+    <body class="bg-slate-800 mb-48">
         <nav class="flex justify-between items-center pt-5 m-7">
             <a href="/"
-                ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
+                ><img class="w-24" src="{{asset('images/admin-logo.png')}}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
                 @auth
                 <li>
                     <span class="font-bold upppercase">
                         
-                        <a href="/user/profile" class="hover:text-green-500"
-                        >Welcome {{auth()->user()->name}}</a
+                        <a href="/user/profile" class="text-slate-50 hover:text-green-500"
+                        >Welcome, {{auth()->user()->name}}</a
                     >
                     </span>
                 </li>
                 <li>
-                    <a href="/problems/create" class="hover:text-green-500"
-                        ><i class="fa-solid fa-plus"></i>
-                        Upload Problems</a
+                    <a href="/adminOperations/user" class="text-slate-50 hover:text-green-500"
+                        ><i class="fa-solid fa-people-group"></i>
+                        Users</a
                     >
                 </li>
                 <li>
-                    <a href="/problems/manage" class="hover:text-green-500"
-                        ><i class="fa-solid fa-gear"></i>
-                        Manage Problems</a
+                    <a href="/adminOperations/posts" class="text-slate-50 hover:text-green-500"
+                        ><i class="fa-regular fa-note-sticky"></i>
+                        Posts</a
+                    >
+                </li>
+                <li>
+                    <a href="/adminOperations/addAdmin" class="text-slate-50 hover:text-green-500"
+                        ><i class="fa-solid fa-user-plus"></i>
+                        Add Admin</a
                     >
                 </li>
                 <li>
                     <form method="POST" action="/logout" class="inline">
                      @csrf
-                     <button type="submit" class="hover:text-red-500">
+                     <button type="submit" class="text-slate-50 hover:text-red-500">
                         <i class="fa-solid fa-door-closed"></i> Logout
                      </button>
                     </form>
-                </li>
-                @else
-                <li>
-                    <a href="/register" class="hover:text-green-500"
-                        ><i class="fa-solid fa-user-plus"></i> Register</a
-                    >
-                </li>
-                <li>
-                    <a href="/login" class="hover:text-green-500"
-                        ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                        Login</a
-                    >
                 </li>
                 @endauth
             </ul>
@@ -89,7 +83,7 @@
   </main>
 
   <footer
-            class="absolute bottom-0 w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
+            class=" w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
         </footer>

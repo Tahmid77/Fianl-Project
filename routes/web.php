@@ -87,9 +87,17 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 // *******admin operations******
 
 
-Route::get('/adminOperations/user', [AdminController::class, 'users']);
+Route::get('/adminOperations/user', [AdminController::class, 'users'])->middleware('auth');;
 
-Route::delete('adminOperations/user/{id}', [AdminController::class, 'deleteUser']);
+Route::get('/adminOperations/posts', [AdminController::class, 'posts'])->middleware('auth');;
+
+Route::get('/adminOperations/addAdmin', [AdminController::class, 'adminRegistration'])->middleware('auth');;
+
+Route::post('/adminOperations/user', [AdminController::class, 'addAdmin'])->middleware('auth');;
+
+Route::delete('adminOperations/user/{id}', [AdminController::class, 'deleteUser'])->middleware('auth');;
+
+Route::delete('adminOperations/posts/{id}', [AdminController::class, 'deletePost'])->middleware('auth');;
 
 
 //*************************** 

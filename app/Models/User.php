@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Problem;
+
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

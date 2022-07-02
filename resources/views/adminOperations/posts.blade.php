@@ -1,48 +1,63 @@
-@extends('AdminLayout')
+@extends('adminLayout')
 @section('content')
 <x-card class="p-10">
     <header>
         <h1
             class="text-3xl text-center font-bold my-6 uppercase"
         >
-            USERS LIST
+            Posts
         </h1>
     </header>
 
     <table class="w-full table-auto rounded-sm">
         <tbody>
-            @if(count($users)==0)
-            <p>No Users Registered Yet !</p>
+            @if(count($problems)==0)
+            <p>No posts found</p>
             @endif
 
-            @foreach($users as $user)
+            @foreach($problems as $problem)
             <tr class="border-gray-300">
+
+              <td
+                  class="px-4 py-8 border-t border-b border-gray-300 text-lg"
+                 >
+                  <a href="show.html">
+                      {{$problem->id}}
+                  </a>
+              </td>
+
                 <td
                     class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                 >
                     <a href="show.html">
-                        {{$user->id}}
-                    </a>
-                </td>
-                <td
-                    class="px-4 py-8 border-t border-b border-gray-300 text-lg"
-                >
-                    <a href="show.html">
-                        {{$user->name}}
-                    </a>
-                </td>
-                <td
-                    class="px-4 py-8 border-t border-b border-gray-300 text-lg"
-                >
-                    <a href="show.html">
-                        {{$user->email}}
+                        posted by : {{$problem->email}}
                     </a>
                 </td>
 
                 <td
                     class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                 >
-                    <form method="POST" action="/adminOperations/user/{{$user->id}}">
+                    <a href="show.html">
+                        {{$problem->title}}
+                    </a>
+                </td>
+
+                <td
+                    class="px-4 py-8 border-t border-b border-gray-300 text-lg"
+                >
+                    <a
+                        href="/problems/{{$problem->id}}/edit"
+                        class="text-blue-400 px-6 py-2 rounded-xl"
+                        ><i
+                            class="fa-solid fa-pen-to-square"
+                        ></i>
+                        Edit</a
+                    >
+                </td>
+                <td
+                    class="px-4 py-8 border-t border-b border-gray-300 text-lg"
+                >
+                    <form method="POST" action="/adminOperations/posts/{{$problem->id}}">
                         @csrf
                         @method('DELETE')
                         <button class="text-red-600">
