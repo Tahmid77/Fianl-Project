@@ -49,10 +49,10 @@ class ProblemController extends Controller
     public function store(Request $req)
     {
         $formVal = $req->validate([
-            'title' => 'required',
-            'email' => 'required',
+            'title' => 'required|max:20',
+            'email' => 'required|email',
             'tags' => 'required',
-            'description' => 'required'
+            'description' => 'required|max:600'
         ]);
 
         if ($req->hasFile('p_file')) {
@@ -83,10 +83,10 @@ class ProblemController extends Controller
             abort(403, 'Unauthorized action');
         }
         $formVal = $req->validate([
-            'title' => 'required',
-            'email' => 'required',
+            'title' => 'required|max:20',
+            'email' => 'required|email',
             'tags' => 'required',
-            'description' => 'required'
+            'description' => 'required|max:600'
         ]);
 
         if ($req->hasFile('p_file')) {

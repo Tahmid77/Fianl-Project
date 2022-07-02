@@ -20,6 +20,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
+            value="{{old('email')}}"
         />
         <!-- Error Example -->
         <p class="text-red-500 text-xs mt-1">
@@ -40,7 +41,13 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="password"
             class="border border-gray-200 rounded p-2 w-full"
             name="password"
+            value="{{old('password')}}"
         />
+        <p class="text-red-500 text-xs mt-1">
+            @error('password')
+                {{$message}}
+            @enderror
+        </p>
     </div>
     <div class="mb-6">
         <button

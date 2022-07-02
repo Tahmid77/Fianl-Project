@@ -20,7 +20,6 @@
                                 type="text"
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="title"
-                                placeholder="Example: Senior Laravel Developer"
                             />
                             @error('title')
                                 <p class="text-red-500 text-xs mt-1">
@@ -40,6 +39,11 @@
                                 name="email"
                                 value={{auth()->user()->email}}
                             />
+                            <p class="text-red-500 text-xs mt-1">
+                                @error('email')
+                                    {{$message}}
+                                @enderror
+                            </p>
                         </div>
 
                         <div class="mb-6">
@@ -50,8 +54,13 @@
                                 type="text"
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="tags"
-                                placeholder="Example: Laravel, Backend, Postgres, etc"
+                                placeholder="Example: DLC, Presentation, EEE, etc"
                             />
+                            <p class="text-red-500 text-xs mt-1">
+                                @error('tags')
+                                    {{$message}}
+                                @enderror
+                            </p>
                         </div>
 
                         <div class="mb-6">
@@ -81,15 +90,20 @@
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="description"
                                 rows="10"
-                                placeholder="Include tasks, requirements, salary, etc"
+                                placeholder="A brief description of your problem"
                             ></textarea>
+                            <p class="text-red-500 text-xs mt-1">
+                                @error('description')
+                                    {{$message}}
+                                @enderror
+                            </p>
                         </div>
 
                         <div class="mb-6">
                             <button
                                 class="bg-green-500 text-white rounded py-2 px-4 hover:bg-black"
                             >
-                                Create Gig
+                                Create Post
                             </button>
 
                             <a href="/" class="text-black ml-4"> Back </a>

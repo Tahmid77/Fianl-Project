@@ -23,11 +23,22 @@ class UserController extends Controller
 
     public function update(Request $req)
     {
-        $formVal = $req->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+        $formVal = $req->validate(
+            [
+                'name' => 'required|max:20|alpha',
+                'email' => 'required|email',
+                'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/i',
+                'password2' => 'required|same:password'
+            ],
+            [
+                "name.required" => "The field is required",
+                "email.required" => "The field is required",
+                "password.required" => "The field is required",
+                "password2.required" => "The field is required",
+                "password2.same" => "The password doesn't match ",
+                "name.max" => "Name should not exceed 10 characters"
+            ]
+        );
 
         // if ($req->hasFile('p_file')) {
         //     $formVal['p_file'] = $req->file('p_file')->store('files', 'public');
@@ -50,11 +61,22 @@ class UserController extends Controller
 
     public function store(Request $req)
     {
-        $formVal = $req->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+        $formVal = $req->validate(
+            [
+                'name' => 'required|max:20|alpha',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/i',
+                'password2' => 'required|same:password'
+            ],
+            [
+                "name.required" => "The field is required",
+                "email.required" => "The field is required",
+                "password.required" => "The field is required",
+                "password2.required" => "The field is required",
+                "password2.same" => "The password doesn't match ",
+                "name.max" => "Name should not exceed 10 characters"
+            ]
+        );
 
 
         $formVal['password'] = bcrypt($formVal['password']);
@@ -84,7 +106,7 @@ class UserController extends Controller
     public function authenticate(Request $req)
     {
         $formVal = $req->validate([
-            'email' => 'required',
+            'email' => 'required|email|exists:users,email',
             'password' => 'required'
         ]);
 

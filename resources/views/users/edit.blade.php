@@ -23,9 +23,11 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="name"
             value="{{auth()->user()->name}}"
         />
-        @error('name')
-            {{$message}}
-        @enderror
+        <p class="text-red-500 text-xs mt-1">
+            @error('name')
+                {{$message}}
+            @enderror
+        </p>
     </div>
 
     <div class="mb-6">
@@ -38,9 +40,10 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="email"
             value="{{auth()->user()->email}}"
         />
-        <!-- Error Example -->
         <p class="text-red-500 text-xs mt-1">
-            Please enter a valid email
+            @error('email')
+                {{$message}}
+            @enderror
         </p>
     </div>
 
@@ -56,6 +59,11 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="password"
         />
+        <p class="text-red-500 text-xs mt-1">
+            @error('password')
+                {{$message}}
+            @enderror
+        </p>
     </div>
 
     <div class="mb-6">
@@ -70,6 +78,11 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="password2"
         />
+        <p class="text-red-500 text-xs mt-1">
+            @error('password2')
+                {{$message}}
+            @enderror
+        </p>
     </div>
 
     <div class="mb-6">

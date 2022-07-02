@@ -7,7 +7,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <h2 class="text-2xl font-bold uppercase mb-1">
         Register
     </h2>
-    <p class="mb-4">Create an account to post gigs</p>
+    <p class="mb-4">Create an account</p>
 </header>
 
 <form method="POST" action="/user">
@@ -20,10 +20,14 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="name"
+            value="{{old('name')}}"
         />
-        @error('name')
+        <p class="text-red-500 text-xs mt-1">
+            @error('name')
             {{$message}}
-        @enderror
+            @enderror
+        </p>
+        
     </div>
 
     <div class="mb-6">
@@ -34,10 +38,12 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="email"
             class="border border-gray-200 rounded p-2 w-full"
             name="email"
+            value="{{old('email')}}"
         />
-        <!-- Error Example -->
         <p class="text-red-500 text-xs mt-1">
-            Please enter a valid email
+            @error('email')
+            {{$message}}
+            @enderror
         </p>
     </div>
 
@@ -52,7 +58,13 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="password"
             class="border border-gray-200 rounded p-2 w-full"
             name="password"
+            value="{{old('password')}}"
         />
+        <p class="text-red-500 text-xs mt-1">
+            @error('password')
+            {{$message}}
+            @enderror
+        </p>
     </div>
 
     <div class="mb-6">
@@ -66,7 +78,13 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             type="password"
             class="border border-gray-200 rounded p-2 w-full"
             name="password2"
+            value="{{old('password2')}}"
         />
+        <p class="text-red-500 text-xs mt-1">
+            @error('password2')
+            {{$message}}
+            @enderror
+        </p>
     </div>
 
     <div class="mb-6">

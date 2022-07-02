@@ -6,9 +6,8 @@
                 >
                     <header class="text-center">
                         <h2 class="text-2xl font-bold uppercase mb-1">
-                            Edit a Gig
+                            Edit Post
                         </h2>
-                        <p class="mb-4">Edit: {{$problem->title}} </p>
                     </header>
 
                     <form method="POST" action="/problems/{{$problem->id}}" enctype="multipart/form-data">
@@ -16,7 +15,7 @@
                         @method('PUT')
                         <div class="mb-6">
                             <label for="title" class="inline-block text-lg mb-2"
-                                >Job Title</label
+                                >Problem Title</label
                             >
                             <input
                                 type="text"
@@ -102,22 +101,26 @@
                                 for="description"
                                 class="inline-block text-lg mb-2"
                             >
-                                Job Description
+                                Problem Description
                             </label>
                             <textarea
                                 class="border border-gray-200 rounded p-2 w-full"
                                 name="description"
                                 rows="10"
-                                placeholder="Include tasks, requirements, salary, etc"
                             >{{$problem->description}}
                         </textarea>
+                        @error('description')
+                                <p class="text-red-500 text-xs mt-1">
+                                    {{$message}}
+                                </p>
+                            @enderror
                         </div>
 
                         <div class="mb-6">
                             <button
                                 class="bg-green-500 text-white rounded py-2 px-4 hover:bg-black"
                             >
-                                Create Gig
+                                Update Post
                             </button>
 
                             <a href="/" class="text-black ml-4"> Back </a>
