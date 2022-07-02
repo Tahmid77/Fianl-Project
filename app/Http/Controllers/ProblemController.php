@@ -50,7 +50,7 @@ class ProblemController extends Controller
     {
         $formVal = $req->validate([
             'title' => 'required|max:20',
-            'email' => 'required|email',
+            'email' => 'required|email|ends_with:.com,.me,.edu',
             'tags' => 'required',
             'description' => 'required|max:600'
         ]);
@@ -84,7 +84,7 @@ class ProblemController extends Controller
         }
         $formVal = $req->validate([
             'title' => 'required|max:20',
-            'email' => 'required|email',
+            'email' => 'required|email|ends_with:.com,.me,.edu',
             'tags' => 'required',
             'description' => 'required|max:600'
         ]);

@@ -34,6 +34,15 @@
                                 
                             </div>
                             <a href="{{'storage/'.$problem->p_file}}" class="underline text-green-500 hover:text-black">{{$problem->p_file ? 'Attatched File' : ''}}</a>
+                            @if ($problem->email != auth()->user()->email)
+                                <a
+                                    href="mailto:{{$problem->email}}"
+                                    class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
+                                    ><i class="fa-solid fa-envelope"></i>
+                                    Contact</a
+                                >
+                            @endif
+                             
                         </div>
                     </div>
                 </x-card>

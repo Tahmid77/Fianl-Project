@@ -5,7 +5,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
 >
 <header class="text-center">
     <h2 class="text-2xl font-bold uppercase mb-1">
-        Register
+        Login
     </h2>
     <p class="mb-4">Log In</p>
 </header>
@@ -66,6 +66,13 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             >
         </p>
     </div>
+    {{-- <div class="mt-8">
+        <p>
+            <a href="{{route('facebook.login')}}" class="text-green-500"
+                >Login FB</a
+            >
+        </p>
+    </div> --}}
 </form>
 </div>
 @endsection

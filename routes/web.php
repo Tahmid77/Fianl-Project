@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\AdminController;
-
-
+use App\Http\Controllers\FacebookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +53,8 @@ Route::delete('/problems/{id}', [ProblemController::class, 'delete'])
 
 
 //single problems
-Route::get('/problems/{id}', [ProblemController::class, 'show']);
+Route::get('/problems/{id}', [ProblemController::class, 'show'])
+      ->middleware('auth');
 
 
 
@@ -63,13 +63,16 @@ Route::get('/register', [UserController::class, 'create'])
       ->middleware('guest');
 
 //create user
-Route::post('/user', [UserController::class, 'store']);
+Route::post('/user', [UserController::class, 'store'])
+      ->middleware('auth');
 
 //show user
-Route::get('/user/profile', [UserController::class, 'show']);
+Route::get('/user/profile', [UserController::class, 'show'])
+      ->middleware('auth');
 
 //update user
-Route::put('/user/profile', [UserController::class, 'update']);
+Route::put('/user/profile', [UserController::class, 'update'])
+      ->middleware('auth');
 
 //logout
 Route::post('/logout', [UserController::class, 'logout'])

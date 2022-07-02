@@ -64,7 +64,7 @@ class UserController extends Controller
         $formVal = $req->validate(
             [
                 'name' => 'required|max:20|alpha',
-                'email' => 'required|email|unique:users,email',
+                'email' => 'required|email|unique:users,email|ends_with:.com,.me,.edu',
                 'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/i',
                 'password2' => 'required|same:password'
             ],
