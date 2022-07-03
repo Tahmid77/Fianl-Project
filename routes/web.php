@@ -106,3 +106,9 @@ Route::delete('adminOperations/posts/{id}', [AdminController::class, 'deletePost
 //*************************** 
 
 //*********************** */
+
+// Facebook Login URL
+Route::prefix('facebook')->name('facebook.')->group(function () {
+      Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+      Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});

@@ -19,6 +19,9 @@
             input:focus {
                 border: solid 3px rgb(34 197 94);
                 }
+            main{
+                min-height: 60vh;
+            }
         </style>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>

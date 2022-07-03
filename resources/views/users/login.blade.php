@@ -66,13 +66,12 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             >
         </p>
     </div>
-    {{-- <div class="mt-8">
-        <p>
-            <a href="{{route('facebook.login')}}" class="text-green-500"
-                >Login FB</a
+    <div class=" mt-12 ">
+            <a href="{{route('facebook.login')}}" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-black"
+                ><i class="fab fa-facebook-f mr-2"></i>
+                Login Facebook</a
             >
-        </p>
-    </div> --}}
+    </div>
 </form>
 </div>
 @endsection
