@@ -65,12 +65,15 @@ class UserController extends Controller
             [
                 'name' => 'required|max:20|alpha',
                 'email' => 'required|email|unique:users,email|ends_with:.com,.me,.edu',
+                'p_pic' => 'required|mimes:png,jpg',
                 'password' => 'required|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/i',
                 'password2' => 'required|same:password'
             ],
             [
                 "name.required" => "The field is required",
                 "email.required" => "The field is required",
+                "p_pic.required" => "The field is required",
+                "p_pic.mimes" => "The profile pic must be a file of type: png, jpg.",
                 "password.required" => "The field is required",
                 "password2.required" => "The field is required",
                 "password2.same" => "The password doesn't match ",
@@ -78,6 +81,9 @@ class UserController extends Controller
             ]
         );
 
+        if ($req->hasFile('p_pic')) {
+            $formVal['p_pic'] = $req->file('p_pic')->store('pictures', 'public');
+        }
 
         $formVal['password'] = bcrypt($formVal['password']);
         User::create($formVal);
