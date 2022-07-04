@@ -64,8 +64,7 @@ Route::get('/register', [UserController::class, 'create'])
       ->middleware('guest');
 
 //create user
-Route::post('/user', [UserController::class, 'store'])
-      ->middleware('auth');
+Route::post('/user', [UserController::class, 'store']);
 
 //show user
 Route::get('/user/profile', [UserController::class, 'show'])
