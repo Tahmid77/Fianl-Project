@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GithubController;
 use App\Http\Controllers\ProblemController;
@@ -117,3 +118,9 @@ Route::prefix('github')->name('github.')->group(function () {
       Route::get('auth', [GithubController::class, 'loginUsingGithub'])->name('login');
       Route::get('callback', [GithubController::class, 'callbackFromGithub'])->name('callback');
 });
+
+
+////////////////////////////////////////////////////
+
+
+Route::post('/problems/show/{id}', [CommentController::class, 'storeComment'])->middleware('auth');

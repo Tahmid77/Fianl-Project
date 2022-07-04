@@ -30,4 +30,11 @@ class Problem extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    //relationship to comments
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'problem_id');
+    }
 }

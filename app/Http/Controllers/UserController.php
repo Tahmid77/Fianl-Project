@@ -87,7 +87,7 @@ class UserController extends Controller
         return redirect('/login');
     }
 
-    public function login(Request $req)
+    public function login()
     {
         return view('users.login');
     }

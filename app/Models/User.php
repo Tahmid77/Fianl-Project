@@ -53,4 +53,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Problem::class, 'user_id');
     }
+
+    // relationship with comments
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id');
+    }
 }

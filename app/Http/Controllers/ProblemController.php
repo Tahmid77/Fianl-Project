@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Problem;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -28,11 +29,14 @@ class ProblemController extends Controller
     public function show($id)
     {
         $problem = Problem::find($id);
+        $comment = Comment::where("problem_id", $id)->get();
+
         if ($problem) {
             return view(
                 'problems.show',
                 [
-                    'problem' => $problem
+                    'problem' => $problem,
+                    'comments' => $comment
                 ]
             );
         } else {
@@ -49,7 +53,7 @@ class ProblemController extends Controller
     public function store(Request $req)
     {
         $formVal = $req->validate([
-            'title' => 'required|max:20',
+            'title' => 'required|max:100',
             'email' => 'required|email|ends_with:.com,.me,.edu',
             'tags' => 'required',
             'description' => 'required|max:600'
