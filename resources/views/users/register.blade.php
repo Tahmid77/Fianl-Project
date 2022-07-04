@@ -10,7 +10,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <p class="mb-4">Create an account</p>
 </header>
 
-<form method="POST" action="/user">
+<form method="POST" action="/user"  enctype="multipart/form-data">
     @csrf
     <div class="mb-6">
         <label for="name" class="inline-block text-lg mb-2">
@@ -45,6 +45,22 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             {{$message}}
             @enderror
         </p>
+    </div>
+
+    <div class="mb-6">
+        <label for="p_pic" class="inline-block text-lg mb-2">
+            Upload Profile Picture
+        </label>
+        <input
+            type="file"
+            class="border border-gray-200 rounded p-2 w-full"
+            name="p_pic"
+        />
+        @error('p_pic')
+        <p class="text-red-500 text-xs mt-1">
+            {{$message}}
+        </p>
+    @enderror
     </div>
 
     <div class="mb-6">

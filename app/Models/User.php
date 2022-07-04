@@ -25,7 +25,8 @@ class User extends Authenticatable
         'password',
         'type',
         'facebook_id',
-        'github_id'
+        'github_id',
+        'p_pic'
     ];
 
     /**

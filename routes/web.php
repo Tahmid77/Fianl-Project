@@ -48,7 +48,7 @@ Route::get('/problems/{id}/edit', [ProblemController::class, 'edit'])
 Route::put('/problems/{id}', [ProblemController::class, 'update'])
       ->middleware('auth');
 
-//update
+//delete
 Route::delete('/problems/{id}', [ProblemController::class, 'delete'])
       ->middleware('auth');
 

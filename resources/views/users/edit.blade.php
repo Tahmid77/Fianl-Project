@@ -1,8 +1,12 @@
 @extends('layout')
 @section('content')
+@php
+
+@endphp
 <div
 class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
 >
+<center><img style="width: 200px" src={{auth()->user()->p_pic ? 'http://localhost:8000/storage/'.auth()->user()->p_pic : asset('images/user.png')}} alt="ff"></center>
 <header class="text-center">
     <h2 class="text-2xl font-bold uppercase mb-1">
         Profile
