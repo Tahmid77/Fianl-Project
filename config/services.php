@@ -35,5 +35,10 @@ return [
         'client_secret' => 'f2ef81af6d6efe66fd0d8cbd29d0576d', //USE FROM FACEBOOK DEVELOPER ACCOUNT
         'redirect' => 'http://localhost:8000/facebook/callback/'
     ],
+    'github' => [
+        'client_id' => 'bcec0f98354225cef031', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'client_secret' => 'f50e8ce97f4f45d41cd5e3e2e7f06d2e84ab9da0', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => 'http://localhost:8000/github/callback/'
+    ],
 
 ];

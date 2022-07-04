@@ -67,11 +67,17 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         </p>
     </div>
     <div class=" mt-12 ">
-            <a href="{{route('facebook.login')}}" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-black"
+            <a href="{{route('facebook.login')}}" class="bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-700"
                 ><i class="fab fa-facebook-f mr-2"></i>
-                Login Facebook</a
+                Login with Facebook</a
             >
     </div>
+    <div class=" mt-12 ">
+        <a href="{{route('github.login')}}" class="bg-black text-white rounded py-2 px-4 hover:bg-slate-700"
+            ><i class="fa-brands fa-github"></i>
+            Login with Github</a
+        >
+</div>
 </form>
 </div>
 @endsection

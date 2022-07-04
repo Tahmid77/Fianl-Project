@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GithubController;
+use App\Http\Controllers\ProblemController;
 use App\Http\Controllers\FacebookController;
 
 /*
@@ -111,4 +112,9 @@ Route::delete('adminOperations/posts/{id}', [AdminController::class, 'deletePost
 Route::prefix('facebook')->name('facebook.')->group(function () {
       Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
       Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
+// Github Login URL
+Route::prefix('github')->name('github.')->group(function () {
+      Route::get('auth', [GithubController::class, 'loginUsingGithub'])->name('login');
+      Route::get('callback', [GithubController::class, 'callbackFromGithub'])->name('callback');
 });
