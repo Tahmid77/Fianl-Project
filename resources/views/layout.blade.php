@@ -92,7 +92,7 @@
   </main>
 
   <footer
-            class=" w-full flex items-center justify-start font-bold bg-green-500 text-white h-24 mt-40 opacity-90 md:justify-center"
+            class=" w-full flex items-center justify-start font-bold bg-slate-900 text-white h-24 mt-40 opacity-90 md:justify-center"
         >
             <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
         </footer>

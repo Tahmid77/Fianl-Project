@@ -55,9 +55,10 @@ class UserController extends Controller
 
         Session::flash('msg', 'Profile Updated');
 
-
         return redirect('/');
     }
+
+
 
     public function store(Request $req)
     {
